@@ -1,5 +1,5 @@
 ## Hi there 👋
-
+<img src="https://komarev.com/ghpvc/?username=dey44and&style=flat-square&color=blue" alt=""/>
 I am Andrei and I strive to learn as much as possible in every area I'm interested. Currently, my focus is concentrated on Machine Learning and Deep Learning, more exactly on Computer Vision and Computer Graphics.</br></br>
 Here you can find some personal projects for university or just for my motivation to learn much more.</br></br>
 Now I'm studying to obtain a Bachelor's Degree in Computer Engineering at Gheorghe Asachi Technical University of Iasi, Romania.
@@ -15,4 +15,4 @@ Now I'm studying to obtain a Bachelor's Degree in Computer Engineering at Gheorg
     <img src="https://img.shields.io/badge/WordPress-white?style=for-the-badge&logo=wordpress&logoColor=white" alt="Twitter Badge"/>
   </a>
 </div>
-<img src="https://komarev.com/ghpvc/?username=dey44and&style=flat-square&color=blue" alt=""/>
+
