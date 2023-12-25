@@ -1,4 +1,8 @@
-### Hi there 👋
+## Hi there 👋
+
+I am Andrei and I strive to learn as much as possible in every area I'm interested. Currently, my focus is concentrated on Machine Learning and Deep Learning, more exactly on Computer Vision and Computer Graphics.</br></br>
+Here you can find some personal projects for university or just for my motivation to learn much more.
+
 <div id="badges">
   <a href="[your-linkedin-URL](https://www.linkedin.com/in/andrei-iosif-ioj%C4%83-5886471b7/)">
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
