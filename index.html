@@ -65,6 +65,28 @@
       .page{ padding:24px 32px; }
       a{ color:inherit; text-decoration:none; }
     }
+
+    /* ===== Mobile layout: collapse third column ===== */
+    @media (max-width: 720px) {
+      body { padding: 28px 16px 64px; }
+      .line { 
+        grid-template-columns: 1fr; 
+        row-gap: 6px; 
+      }
+      /* hide empty label rows (those spacer labels in multi-line sections) */
+      .line .label:empty { display: none; }
+    
+      /* hide the right-year column on phones */
+      .years { display: none; }
+    
+      /* show years after the role/place title instead */
+      .line[data-when] .content .role::after,
+      .line[data-when] .content .place::after {
+        content: " · " attr(data-when);
+        color: var(--muted);
+        font-weight: 400;
+      }
+    }
   </style>
 </head>
 <body>
@@ -215,5 +237,19 @@
       </div>
     </section>
   </main>
+
+  <script>
+  (function () {
+    document.querySelectorAll('.line').forEach(line => {
+      const years = line.querySelector('.years');
+      const txt = years ? years.textContent.trim() : '';
+      if (!txt || txt === '—') return; // skip placeholders
+      // Prefer to attach after .role or .place (falls back to none)
+      const hasTitle = line.querySelector('.content .role, .content .place');
+      if (hasTitle) line.setAttribute('data-when', txt);
+    });
+  })();
+</script>
+
 </body>
 </html>
