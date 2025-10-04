@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Andrei‑Iosif Ioja — CV</title>
+  <title>Andrei-Iosif Ioja — CV</title>
   <style>
     :root{
-      --accent:#d3423a; /* red for section labels */
+      --accent:#d3423a;
       --ink:#111;
       --muted:#8f8f8f;
       --faint:#cfcfcf;
@@ -15,95 +15,88 @@
     html,body{height:100%;}
     body{
       margin:0; padding:48px 24px 96px; color:var(--ink);
-      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
       background:#fff;
     }
     .page{max-width:var(--maxw); margin:0 auto;}
 
     /* ===== Header ===== */
+    header{
+      display:grid; grid-template-columns: 1fr 160px; column-gap:28px; align-items:start;
+    }
     header h1{
       font-family: Georgia, "Times New Roman", Times, serif;
       font-weight:700; letter-spacing:.2px; margin:0 0 4px;
       font-size: clamp(36px, 6.5vw, 56px);
     }
-    header .tagline{
-      font-style: italic; opacity:.9; margin:0 0 16px; font-size:18px;
+    header .tagline{ font-style:italic; opacity:.9; margin:0 0 16px; font-size:18px; }
+    header .links{ color:var(--muted); font-size:14px; margin-top:6px; }
+    header .links a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--faint); }
+    header .links a:hover{ color:var(--ink); border-bottom-color:var(--ink); }
+    .header-photo{
+      width:160px; height:160px; border-radius:50%;
+      object-fit:cover; object-position:center;
+      border:3px solid #fff; box-shadow:0 6px 18px rgba(0,0,0,.08);
     }
-    header .links{
-      color:var(--muted); font-size:14px; margin-top:6px;
-    }
-    header .links a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--faint);} 
-    header .links a:hover{ color:var(--ink); border-bottom-color:var(--ink);}
 
     /* ===== Grid rows (label | content | years) ===== */
-    .line{ display:grid; grid-template-columns: 180px 1fr 110px; column-gap:28px; align-items:start;}
-    .line + .line{ margin-top:18px;}
-    .label{ color:var(--accent); font-weight:600; text-transform:none;}
-    .content b{ font-weight:600;}
-    .years{ color:var(--faint); text-align:right; white-space:nowrap;}
+    .line{ display:grid; grid-template-columns: 180px 1fr 110px; column-gap:28px; align-items:start; }
+    .line + .line{ margin-top:18px; }
+    .label{ color:var(--accent); font-weight:600; }
+    .content b{ font-weight:600; }
+    .years{ color:var(--faint); text-align:right; white-space:nowrap; }
 
-    /* Section spacing */
-    section{ margin-top:28px;}
-    section + section{ margin-top:32px;}
+    section{ margin-top:28px; }
+    section + section{ margin-top:32px; }
 
-    /* Lists inside content */
     .content ul{ margin:6px 0 0 18px; padding:0; }
     .content li{ margin:2px 0; }
 
-    /* Sub-rows for multi-item sections (Education, Experience, Projects, Awards) */
-    .item{ display:grid; grid-template-columns: 1fr; margin:0 0 12px 0;}
-    .meta{ color:#444; margin-top:2px;}
-    .role{ font-weight:600;}
-    .place{ font-weight:600;}
+    .item{ display:grid; grid-template-columns: 1fr; margin:0 0 12px 0; }
+    .meta{ color:#444; margin-top:2px; }
+    .role{ font-weight:600; }
+    .place{ font-weight:600; }
 
-    /* Subtle divider */
-    hr.sep{ border:0; border-top:1px solid #eee; margin:28px 0;}
+    hr.sep{ border:0; border-top:1px solid #eee; margin:28px 0; }
 
-    /* Print */
+    /* Inline year (inserted by JS) */
+    .when{ display:none; color:var(--muted); font-weight:400; }
+
+    /* ===== Mobile: collapse to single column and show inline year ===== */
+    @media (max-width: 720px){
+      body{ padding:28px 16px 64px; }
+      header{ grid-template-columns:1fr; row-gap:12px; }
+      .header-photo{ width:120px; height:120px; }
+      .line{ grid-template-columns:1fr; row-gap:6px; }
+      .line .label:empty{ display:none; }
+      .years{ display:none; }
+      .when{ display:inline; }
+    }
+
     @media print{
       body{ padding:0; }
       .page{ padding:24px 32px; }
       a{ color:inherit; text-decoration:none; }
-    }
-
-    /* ===== Mobile layout: collapse third column ===== */
-    @media (max-width: 720px) {
-      body { padding: 28px 16px 64px; }
-      .line { 
-        grid-template-columns: 1fr; 
-        row-gap: 6px; 
-      }
-      /* hide empty label rows (those spacer labels in multi-line sections) */
-      .line .label:empty { display: none; }
-    
-      /* hide the right-year column on phones */
-      .years { display: none; }
-    
-      /* show years after the role/place title instead */
-      .line[data-when] .content .role::after,
-      .line[data-when] .content .place::after {
-        content: " · " attr(data-when);
-        color: var(--muted);
-        font-weight: 400;
-      }
     }
   </style>
 </head>
 <body>
   <main class="page">
     <header>
-      <h1>Andrei‑Iosif Ioja</h1>
-      <p class="tagline">MSc student in Artificial Intelligence & Vision · Deep Learning & Data Science</p>
-      <p class="links">
-      </p>
+      <div>
+        <h1>Andrei-Iosif Ioja</h1>
+        <p class="tagline">MSc student in Artificial Intelligence & Vision · Deep Learning & Data Science</p>
+        <p class="links"></p>
+      </div>
+      <img class="header-photo" src="me.jpg" alt="Portrait of Andrei-Iosif Ioja" loading="lazy" />
     </header>
 
     <!-- SUMMARY -->
     <section>
       <div class="line">
         <div class="label">Summary</div>
-        <div class="content">Passionate about computers and programming with strong problem‑solving skills from math and programming Olympiads. Eager to advance in computer engineering and contribute to future technological progress.</div>
-        <div class="years"></div>
+        <div class="content">Passionate about computers and programming with strong problem-solving skills from math and programming Olympiads. Eager to advance in computer engineering and contribute to future technological progress.</div>
+        <div class="years">—</div>
       </div>
     </section>
 
@@ -112,11 +105,11 @@
       <div class="line">
         <div class="label">Work Experience</div>
         <div class="content">
-          <div class="role">Working Student — Deep Learning & Data Science</div>
-          <div class="place">Bosch Romania · Hybrid, Cluj‑Napoca</div>
+          <div class="role">Working Student — Deep Learning & Data Science <span class="when"></span></div>
+          <div class="place">Bosch Romania · Hybrid, Cluj-Napoca</div>
           <div class="meta">
-            • Built an end‑to‑end pipeline for automated data labeling using a foundation model, followed by transfer learning to optimize a smaller task‑specific model.<br>
-            • Fine‑tuned foundation models for prompt understanding (NLP) and computer‑vision tasks.<br>
+            • Built an end-to-end pipeline for automated data labeling using a foundation model, followed by transfer learning to optimize a smaller task-specific model.<br>
+            • Fine-tuned foundation models for prompt understanding (NLP) and computer-vision tasks.<br>
             • Used PyTorch, Torchvision, NumPy, SciPy, and Seaborn for training, evaluation, and analysis.
           </div>
         </div>
@@ -126,11 +119,11 @@
       <div class="line">
         <div class="label"></div>
         <div class="content">
-          <div class="role">Teaching Assistant (Self‑employed)</div>
-          <div class="place">Babeș‑Bolyai University · Cluj (Hybrid)</div>
+          <div class="role">Teaching Assistant (Self-employed) <span class="when"></span></div>
+          <div class="place">Babeș-Bolyai University · Cluj (Hybrid)</div>
           <div class="meta">
             • Tutored 30+ students for the Baccalaureate; helped 20+ gain admission to top universities.<br>
-            • Taught Computer Architecture labs to first‑year students (Fall 2024).
+            • Taught Computer Architecture labs to first-year students (Fall 2024).
           </div>
         </div>
         <div class="years">2020—2025</div>
@@ -139,12 +132,12 @@
       <div class="line">
         <div class="label"></div>
         <div class="content">
-          <div class="role">Software Engineer</div>
+          <div class="role">Software Engineer <span class="when"></span></div>
           <div class="place">Advanced Micro Devices (AMD) · Iași</div>
           <div class="meta">
-            • Developed a Python library for data gathering and processing to train models for hardware‑testing insights.<br>
+            • Developed a Python library for data gathering and processing to train models for hardware-testing insights.<br>
             • Implemented ETL pipelines (parsing binary files, filtering datasets, handling missing values).<br>
-            • Applied PyTorch, SciPy, Scikit‑Learn; created visualizations with Google Charts, Bokeh, Matplotlib.
+            • Applied PyTorch, SciPy, Scikit-Learn; created visualizations with Google Charts, Bokeh, Matplotlib.
           </div>
         </div>
         <div class="years">Feb—Sep 2024</div>
@@ -159,7 +152,7 @@
           <b>Programming</b>: Python, C++, C, Java, R<br>
           <b>Data & Systems</b>: SQL (SQLite, Oracle), NoSQL (MongoDB, Redis), Spark, Hadoop, BigQuery
         </div>
-        <div class="years"></div>
+        <div class="years">—</div>
       </div>
     </section>
 
@@ -168,7 +161,7 @@
       <div class="line">
         <div class="label">Projects</div>
         <div class="content">
-          <div class="role">Escape Room — Deep Learning, Comparative Analysis</div>
+          <div class="role">Escape Room — Deep Learning, Comparative Analysis <span class="when"></span></div>
           <div class="meta">C#, Unity, PyTorch, Python, GANs, Reinforcement Learning · Implemented models on complex environmental data and built Unity visualizations to compare approaches.</div>
         </div>
         <div class="years">2023</div>
@@ -177,7 +170,7 @@
       <div class="line">
         <div class="label"></div>
         <div class="content">
-          <div class="role">Traffic Object Detection & Tracking</div>
+          <div class="role">Traffic Object Detection & Tracking <span class="when"></span></div>
           <div class="meta">Python, YOLOv8, PyTorch, OpenCV, NumPy · Collected/annotated a custom dataset; trained YOLOv8; integrated a Particle Filter for robust tracking and evaluation.</div>
         </div>
         <div class="years">2024</div>
@@ -189,7 +182,7 @@
       <div class="line">
         <div class="label">Education</div>
         <div class="content">
-          <div class="place">Technical University of Cluj‑Napoca</div>
+          <div class="place">Technical University of Cluj-Napoca <span class="when"></span></div>
           <div class="meta">MSc · Artificial Intelligence & Vision</div>
         </div>
         <div class="years">Since 2024</div>
@@ -198,7 +191,7 @@
       <div class="line">
         <div class="label"></div>
         <div class="content">
-          <div class="place">Gheorghe Asachi Technical University of Iași</div>
+          <div class="place">Gheorghe Asachi Technical University of Iași <span class="when"></span></div>
           <div class="meta">Dipl.-Ing., Computer Engineering · GPA 9.80/10 · Thesis 10/10</div>
         </div>
         <div class="years">2020—2024</div>
@@ -209,19 +202,19 @@
     <section>
       <div class="line">
         <div class="label">Honors & Awards</div>
-        <div class="content">ICPC South‑Eastern Europe Contest — <span class="meta">Honorable Mention</span></div>
+        <div class="content">ICPC South-Eastern Europe Contest — <span class="meta">Honorable Mention</span> <span class="when"></span></div>
         <div class="years">2021–2023</div>
       </div>
 
       <div class="line">
         <div class="label"></div>
-        <div class="content">South‑Eastern European Mathematical Competition — <span class="meta">Bronze</span></div>
+        <div class="content">South-Eastern European Mathematical Competition — <span class="meta">Bronze</span> <span class="when"></span></div>
         <div class="years">2021–2022</div>
       </div>
 
       <div class="line">
         <div class="label"></div>
-        <div class="content">NCUMC — <span class="meta">Gold medal</span></div>
+        <div class="content">NCUMC — <span class="meta">Gold medal</span> <span class="when"></span></div>
         <div class="years">2023, 2025</div>
       </div>
     </section>
@@ -233,23 +226,22 @@
         <div class="content">
           <b>Languages</b>: Romanian (Native), English (C1 — IELTS 8), German (A2)
         </div>
-        <div class="years"></div>
+        <div class="years">—</div>
       </div>
     </section>
   </main>
 
   <script>
-  (function () {
-    document.querySelectorAll('.line').forEach(line => {
-      const years = line.querySelector('.years');
-      const txt = years ? years.textContent.trim() : '';
-      if (!txt || txt === '—') return; // skip placeholders
-      // Prefer to attach after .role or .place (falls back to none)
-      const hasTitle = line.querySelector('.content .role, .content .place');
-      if (hasTitle) line.setAttribute('data-when', txt);
-    });
-  })();
-</script>
-
+    // Copy each row's right-column year into the inline <span.when> (shown only on mobile)
+    (function () {
+      document.querySelectorAll('.line').forEach(function(line){
+        var years = line.querySelector('.years');
+        var txt = years ? years.textContent.trim() : '';
+        if (!txt || txt === '—') return;
+        var inlineHolder = line.querySelector('.content .role .when, .content .place .when, .content .when');
+        if (inlineHolder) inlineHolder.textContent = ' · ' + txt;
+      });
+    })();
+  </script>
 </body>
 </html>
