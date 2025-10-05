@@ -79,6 +79,41 @@
       }
     }
 
+    /* ===== Language tables ===== */
+    .lang-card{ margin:12px 0 18px; }
+    .lang-head{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+    .lang-note{ margin-top:8px; font-size:14px; }
+    
+    .lang-table{
+      width:100%;
+      border-collapse:collapse;           /* no outer border */
+      table-layout:fixed;                 /* even columns */
+    }
+    .lang-table th,
+    .lang-table td{
+      padding:8px 10px;
+      font-size:14px;
+      text-align:center;
+    }
+    .lang-table thead th{ color:#333; font-weight:600; }
+    /* internal lines only */
+    .lang-table th + th,
+    .lang-table td + td{ border-left:1px solid #eee; }
+    .lang-table tr + tr td{ border-top:1px solid #eee; }
+    
+    /* pretty link for IELTS */
+    .link-chip{
+      display:inline-block; padding:3px 8px; font-size:12px; line-height:1.6;
+      border-radius:999px; border:1px solid var(--accent);
+      color:var(--accent); background:#fff; text-decoration:none;
+    }
+    .link-chip:hover{ background:#fff6f5; }
+    
+    /* mobile sizing */
+    @media (max-width:720px){
+      .lang-table th,.lang-table td{ font-size:13px; padding:6px 8px; }
+    }
+
     @media print{
       body{ padding:0; }
       .page{ padding:24px 32px; }
@@ -274,13 +309,44 @@
     </section>
 
     <!-- LANGUAGES / EXTRA -->
-    <section>
+    <section id="languages">
       <div class="line">
-        <div class="label">Additional</div>
+        <div class="label">Languages</div>
         <div class="content">
-          <b>Languages</b>: Romanian (Native), English (C1 — IELTS 8), German (A2)
+    
+          <!-- English -->
+          <div class="lang-card">
+            <div class="lang-head">
+              <strong>English (C1)</strong>
+              <!-- update the href to your actual file/link -->
+              <a class="link-chip" href="IELTS_certificate.pdf" target="_blank" rel="noopener">IELTS certificate</a>
+            </div>
+            <table class="lang-table" aria-label="English language skills">
+              <tr>
+                <th>Reading</th><th>Listening</th><th>Speaking</th><th>Writing</th>
+              </tr>
+              <tr>
+                <td>C1</td><td>C1</td><td>C1</td><td>C1</td>
+              </tr>
+            </table>
+          </div>
+    
+          <!-- German -->
+          <div class="lang-card">
+            <div class="lang-head"><strong>German (A2)</strong></div>
+            <table class="lang-table" aria-label="German language skills">
+              <tr>
+                <th>Reading</th><th>Listening</th><th>Speaking</th><th>Writing</th>
+              </tr>
+              <tr>
+                <td>A2</td><td>A2</td><td>A2</td><td>A2</td>
+              </tr>
+            </table>
+          </div>
+    
+          <div class="lang-note"><strong>Romanian</strong> — Native</div>
         </div>
-        <div class="years"></div>
+        <div class="years">—</div>
       </div>
     </section>
     <footer class="site-foot">© 2025 Andrei-Iosif Ioja</footer>
