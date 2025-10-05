@@ -70,7 +70,13 @@
       .line{ grid-template-columns:1fr; row-gap:6px; }
       .line .label:empty{ display:none; }
       .years{ display:none; }
-      .when{ display:inline; }
+      /*.when{ display:inline; } */
+      .when{
+        display:block;
+        margin-top:2px;
+        font-size:0.95em;
+        color:var(--muted);
+      }
     }
 
     @media print{
@@ -277,7 +283,7 @@
         var txt = years ? years.textContent.trim() : '';
         if (!txt || txt === '—') return;
         var inlineHolder = line.querySelector('.content .role .when, .content .place .when, .content .when');
-        if (inlineHolder) inlineHolder.textContent = ' · ' + txt;
+        if (inlineHolder) inlineHolder.textContent = txt;
       });
     })();
   </script>
