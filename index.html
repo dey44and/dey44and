@@ -103,9 +103,19 @@
     
     /* pretty link for IELTS */
     .link-chip{
-      display:inline-block; padding:3px 8px; font-size:12px; line-height:1.6;
-      border-radius:999px; border:1px solid var(--accent);
-      color:var(--accent); background:#fff; text-decoration:none;
+      display:inline-flex;              /* enables centering */
+      align-items:center;               /* vertical center */
+      justify-content:center;           /* horizontal center */
+      padding:4px 10px;
+      min-height:26px;
+      text-align:center;
+      border-radius:999px;
+      border:1px solid var(--accent);
+      color:var(--accent);
+      background:#fff;
+      text-decoration:none;
+      /* optional: keep it on one line */
+      /* white-space: nowrap; */
     }
     .link-chip:hover{ background:#fff6f5; }
     
