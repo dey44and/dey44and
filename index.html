@@ -73,6 +73,11 @@
     header .links{ color:var(--muted); font-size:14px; margin-top:6px; }
     header .links a{ color:inherit; text-decoration:none; border-bottom:1px solid var(--faint); }
     header .links a:hover{ color:var(--ink); border-bottom-color:var(--ink); }
+    .links.contact { color: var(--ink); }
+    .links.contact a { color: inherit; text-decoration: none; border: 0; }
+    .links.contact a:hover { text-decoration: underline; }
+    .links.contact .sep { color: var(--faint); margin: 0 6px; }
+    @media (max-width:720px){ .links.contact { font-size: 15px; } }
     .header-photo{
       width:160px; height:160px; border-radius:50%;
       object-fit:cover; object-position:center;
@@ -208,7 +213,11 @@
       <div>
         <h1>Andrei-Iosif Ioja</h1>
         <p class="tagline">MSc student in Artificial Intelligence & Vision · Deep Learning & Data Science</p>
-        <p class="links"></p>
+        <p class="links contact">
+          <a href="mailto:andrei@example.com">andrei@example.com</a>
+          <span class="sep">·</span>
+          <a href="tel:+40123456789">+40 123 456 789</a>
+        </p>
       </div>
       <img class="header-photo" src="me.jpg" alt="Portrait of Andrei-Iosif Ioja" loading="lazy" />
     </header>
