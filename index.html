@@ -230,6 +230,20 @@
     .repo-meta{ display:flex; align-items:center; gap:12px; font-size:14px; color:#555; }
     .lang-dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
     .lang{ display:flex; align-items:center; gap:6px; }
+
+    /* title link only */
+    .repo-title a.repo-link{
+      color: var(--link);
+      text-decoration: none;
+    }
+    .repo-title a.repo-link:hover{
+      text-decoration: underline;   /* underline on hover */
+    }
+    .repo-title a.repo-link:focus-visible{
+      outline: 2px solid var(--link);  /* keyboard focus */
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
     
     /* mobile: card fills the single-column content just fine */
     @media (max-width:720px){
@@ -390,23 +404,30 @@
         </div> -->
         <div class="content">
           <div class="repo-list">
+            <div class="repo-card">  <!-- card is a DIV now -->
               <div class="repo-head">
-                <!-- book icon -->
+                <!-- tiny book icon -->
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <rect x="3" y="4" width="18" height="16" rx="2"></rect>
-                  <path d="M12 4v16"></path>  <!-- spine -->
+                  <path d="M12 4v16"></path>
                 </svg>
-                <a class="repo-card" href="https://github.com/dey44and/disease-simulator" target="_blank" rel="noopener" aria-label="Open GitHub repo: agent-based-school-model">
-                  <div class="repo-title">
+                <div class="repo-title">
+                  <a class="repo-link"
+                     href="https://github.com/dey44and/disease-simulator"
+                     target="_blank" rel="noopener">
                     <span class="owner">dey44and</span>/<span class="name">disease-simulator</span>
-                  </div>
-                </a>
+                  </a>
+                </div>
                 <span class="badge">Simulation</span>
               </div>
-              <div class="repo-desc">Agent-based epidemiological model for school environments; explores interventions (masks, vaccination) and visualizes infection dynamics in real time.</div>
+              <div class="repo-desc">
+                Agent-based epidemiological model for school environments; explores
+                interventions (masks, vaccination) and visualizes infection dynamics in real time.
+              </div>
               <div class="repo-meta">
                 <span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
               </div>
+            </div>
           </div>
         </div>
         <div class="years">Dec 2024–Feb 2025</div>
