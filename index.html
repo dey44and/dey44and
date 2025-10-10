@@ -188,6 +188,43 @@
       .lang-table th,.lang-table td{ font-size:13px; padding:6px 8px; }
     }
 
+    /* ===== Repo cards ===== */
+    :root { --link:#1f6feb; } /* GitHub-ish blue */
+    
+    .repo-list{ display:grid; gap:12px; }
+    .repo-card{
+      display:block;
+      text-decoration:none; color:inherit;
+      border:1px solid #e8e8e8; background:#fff;
+      border-radius:12px; padding:12px 14px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02);
+      transition:border-color .2s, box-shadow .2s, transform .02s;
+    }
+    .repo-card:hover{ border-color:#dadada; box-shadow:0 8px 20px rgba(0,0,0,.06); transform:translateY(-1px); }
+    
+    .repo-head{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+    .repo-head svg{ width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8; opacity:.9; }
+    .repo-title{ font-weight:600; }
+    .repo-title .owner{ color:#555; font-weight:500; }
+    .repo-title .name{ color:var(--link); }
+    
+    .badge{
+      margin-left:auto;
+      font-size:12px; padding:2px 8px; border-radius:999px;
+      background:#f6f6f6; border:1px solid #e6e6e6; color:#555;
+    }
+    
+    .repo-desc{ color:#444; margin:4px 0 8px; }
+    
+    .repo-meta{ display:flex; align-items:center; gap:12px; font-size:14px; color:#555; }
+    .lang-dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+    .lang{ display:flex; align-items:center; gap:6px; }
+    
+    /* mobile: card fills the single-column content just fine */
+    @media (max-width:720px){
+      .repo-card{ padding:12px; }
+    }
+
     @media print{
       body{ padding:0; }
       .page{ padding:24px 32px; }
@@ -334,11 +371,29 @@
     <section>
       <div class="line">
         <div class="label">Projects</div>
-        <div class="content">
+        <!-- <div class="content">
           <div class="role">Agent-Based Epidemiological Model for School Environments<span class="when"></span></div>
           <div class="meta">
             • Python, PyTorch, SciPy, Intelligent Agents<br>
             • Developed a project that models interactions between students and teachers, analyzes intervention strategies such as mask usage and vaccination, and visualizes infection dynamics—all in real time using Python.</div>
+        </div> -->
+        <div class="content">
+          <div class="repo-list">
+            <a class="repo-card" href="https://github.com/dey44and/disease-simulator" target="_blank" rel="noopener" aria-label="Open GitHub repo: agent-based-school-model">
+              <div class="repo-head">
+                <!-- repo/book icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12a2 2 0 0 1 2 2v14l-4-2-4 2V6a2 2 0 0 0-2-2H4z"></path></svg>
+                <div class="repo-title">
+                  <span class="owner">dey44and</span>/<span class="name">disease-simulator</span>
+                </div>
+                <span class="badge">Simulation</span>
+              </div>
+              <div class="repo-desc">Agent-based epidemiological model for school environments; explores interventions (masks, vaccination) and visualizes infection dynamics in real time.</div>
+              <div class="repo-meta">
+                <span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+              </div>
+            </a>
+          </div>
         </div>
         <div class="years">Dec 2024–Feb 2025</div>
       </div>
