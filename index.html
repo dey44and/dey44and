@@ -189,21 +189,33 @@
     }
 
     /* ===== Repo cards ===== */
-    :root { --link:#1f6feb; } /* GitHub-ish blue */
+    :root { --link:#1f6feb; } /* keep */
     
-    .repo-list{ display:grid; gap:12px; }
+    .repo-list{ display:grid; gap:12px; } /* keep */
+    
     .repo-card{
       display:block;
       text-decoration:none; color:inherit;
       border:1px solid #e8e8e8; background:#fff;
       border-radius:12px; padding:12px 14px;
-      box-shadow:0 1px 0 rgba(0,0,0,.02);
-      transition:border-color .2s, box-shadow .2s, transform .02s;
+      box-shadow:none;        
+      transition:none;         
     }
-    .repo-card:hover{ border-color:#dadada; box-shadow:0 8px 20px rgba(0,0,0,.06); transform:translateY(-1px); }
+    
+    .repo-card:hover{
+      border-color:#e8e8e8;    
+      box-shadow:none;        
+      transform:none;         
+    }
     
     .repo-head{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }
-    .repo-head svg{ width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8; opacity:.9; }
+    
+    /* CHANGED: make the icon tiny */
+    .repo-head svg{
+      width:16px; height:16px; 
+      stroke:currentColor; fill:none; stroke-width:1.8; opacity:.9;
+    }
+    
     .repo-title{ font-weight:600; }
     .repo-title .owner{ color:#555; font-weight:500; }
     .repo-title .name{ color:var(--link); }
@@ -215,7 +227,6 @@
     }
     
     .repo-desc{ color:#444; margin:4px 0 8px; }
-    
     .repo-meta{ display:flex; align-items:center; gap:12px; font-size:14px; color:#555; }
     .lang-dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
     .lang{ display:flex; align-items:center; gap:6px; }
@@ -381,8 +392,11 @@
           <div class="repo-list">
             <a class="repo-card" href="https://github.com/dey44and/disease-simulator" target="_blank" rel="noopener" aria-label="Open GitHub repo: agent-based-school-model">
               <div class="repo-head">
-                <!-- repo/book icon -->
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h12a2 2 0 0 1 2 2v14l-4-2-4 2V6a2 2 0 0 0-2-2H4z"></path></svg>
+                <!-- book icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                  <path d="M12 4v16"></path>  <!-- spine -->
+                </svg>
                 <div class="repo-title">
                   <span class="owner">dey44and</span>/<span class="name">disease-simulator</span>
                 </div>
