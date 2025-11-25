@@ -109,7 +109,7 @@
     .label{ color:var(--accent); font-weight:600; }
     .content b{ font-weight:600; }
     /* years cell now stacks: date on top, logo under it */
-    .years .y{ display:block; color:var(--dark); }
+    .years .y{ text-align:right; white-space:nowrap; color:var(--dark); }
     .company-logo{
       display:block;
       margin-top:8px;
@@ -385,7 +385,10 @@
             • Used PyTorch, Torchvision, NumPy, and Scikit-Learn for training, evaluation, and analysis.
           </div>
         </div>
-        <div class="years">Jul 2025–Nov 2025</div>
+        <div class="years">
+          <span class="y">Jul 2025–Nov 2025</span>
+          <img class="company-logo" src="bosch.jpg" alt="Bosch logo">
+        </div>
       </div>
 
       <div class="line">
