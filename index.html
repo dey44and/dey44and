@@ -108,7 +108,17 @@
     .line + .line{ margin-top:18px; }
     .label{ color:var(--accent); font-weight:600; }
     .content b{ font-weight:600; }
-    .years{ color:var(--dark); text-align:right; white-space:nowrap; }
+    /* years cell now stacks: date on top, logo under it */
+    .years .y{ display:block; color:var(--dark); }
+    .company-logo{
+      display:block;
+      margin-top:8px;
+      margin-left:auto;          /* keeps it under the right-aligned date */
+      max-height:28px;           /* tidy size; adjust if needed */
+      width:auto;                /* preserve aspect ratio */
+      object-fit:contain;
+      filter: none;              /* try: grayscale(100%) opacity(.9) if you want muted logos */
+    }
 
     section{ margin-top:28px; }
     section + section{ margin-top:32px; }
@@ -388,7 +398,10 @@
             • Applied PyTorch, SciPy, Scikit-Learn; created visualizations with Google Charts, and Bokeh.
           </div>
         </div>
-        <div class="years">Feb 2024–Sep 2024</div>
+        <div class="years">
+          <span class="y">Feb 2024–Sep 2024</span>
+          <img class="company-logo" src="logos/amd.png" alt="AMD logo">
+        </div>
       </div>
     </section>
 
@@ -625,17 +638,17 @@
     <footer class="site-foot">© 2025 Andrei-Iosif Ioja</footer>
   </main>
 
-  <script>
-    // Copy each row's right-column year into the inline <span.when> (shown only on mobile)
-    (function () {
-      document.querySelectorAll('.line').forEach(function(line){
-        var years = line.querySelector('.years');
-        var txt = years ? years.textContent.trim() : '';
-        if (!txt || txt === '—') return;
-        var inlineHolder = line.querySelector('.content .role .when, .content .place .when, .content .when');
-        if (inlineHolder) inlineHolder.textContent = txt;
-      });
-    })();
-  </script>
+<script>
+  (function () {
+    document.querySelectorAll('.line').forEach(function(line){
+      var yearsBox = line.querySelector('.years');
+      var yTextEl = yearsBox ? (yearsBox.querySelector('.y') || yearsBox) : null;
+      var txt = yTextEl ? yTextEl.textContent.trim() : '';
+      if (!txt) return;
+      var inlineHolder = line.querySelector('.content .role .when, .content .place .when, .content .when');
+      if (inlineHolder) inlineHolder.textContent = txt;
+    });
+  })();
+</script>
 </body>
 </html>
