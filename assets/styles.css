@@ -251,10 +251,36 @@ h1{ font-family:Georgia, "Times New Roman", Times, serif; font-size:clamp(28px, 
 /* Case boxes */
 .casegrid{ display:grid; gap:12px; }
 .casebox{ border:1px solid #eaeaea; border-radius:8px; padding:16px 18px; background:#fff; }
-.casebox h3{ margin:0 0 10px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#555; }
+.casebox h3{ margin:0 0 10px; font-size:16px; letter-spacing:.12em; text-transform:uppercase; color:#555; }
 .casebox p{ margin:0; color:#222; }
 
 @media (min-width:920px){
   .casegrid{ grid-template-columns: 1fr 1fr; }
   .casegrid .casebox:nth-child(1){ grid-column:1 / -1; } /* SUMMARY full width */
 }
+
+/* ===== Architecture figure card ===== */
+.casefig{
+  /*border:1px solid #eaeaea;*/
+  border-radius:8px;
+  padding:12px;
+  background:#fff;
+  margin-top:12px;
+}
+.casefig img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:6px;
+}
+.casefig .cap{
+  margin-top:8px;
+  font-size:14px;
+  color:var(--muted);
+  text-align:center;        /* center the caption */
+}
+/* If you want to place the figure *inside* the .casegrid, let it span both cols */
+@media (min-width:920px){
+  .casegrid .casefig.full{ grid-column: 1 / -1; }
+}
+
