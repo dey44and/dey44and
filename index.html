@@ -43,7 +43,8 @@
   <meta name="theme-color" content="#ffffff">
   
   <title>Andrei-Iosif Ioja — CV</title>
-  <link rel=""stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/main.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,6 +68,8 @@
   </script>
 </head>
 <body>
+  <!-- Site nav -->
+  <div id="site-nav"></div>
   <main class="page">
     <header>
       <div>
@@ -431,20 +434,8 @@
         <div class="years"></div>
       </div>
     </section>
-    <footer class="site-foot">© 2025 Andrei-Iosif Ioja</footer>
+    <!-- Replaced footer -->
+    <div id="site-foot"></div>
   </main>
-
-<script>
-  (function () {
-    document.querySelectorAll('.line').forEach(function(line){
-      var yearsBox = line.querySelector('.years');
-      var yTextEl = yearsBox ? (yearsBox.querySelector('.y') || yearsBox) : null;
-      var txt = yTextEl ? yTextEl.textContent.trim() : '';
-      if (!txt) return;
-      var inlineHolder = line.querySelector('.content .role .when, .content .place .when, .content .when');
-      if (inlineHolder) inlineHolder.textContent = txt;
-    });
-  })();
-</script>
 </body>
 </html>
