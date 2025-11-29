@@ -62,6 +62,7 @@
     .line + .line{ margin-top:18px; }
     .label{ color:var(--accent); font-weight:600; }
     .content b{ font-weight:600; }
+
     /* years cell now stacks: date on top, logo under it */
     .years .y{ text-align:right; white-space:nowrap; color:var(--dark); }
     .company-logo{
@@ -124,6 +125,7 @@
       text-align:center;
     }
     .lang-table thead th{ color:#333; font-weight:600; }
+
     /* internal lines only */
     .lang-table th + th,
     .lang-table td + td{ border-left:1px solid #eee; }
@@ -285,6 +287,7 @@ h1{ font-family:Georgia, "Times New Roman", Times, serif; font-size:clamp(28px, 
   color:var(--muted);
   text-align:center;        /* center the caption */
 }
+
 /* If you want to place the figure *inside* the .casegrid, let it span both cols */
 @media (min-width:920px){
   .casegrid .casefig.full{ grid-column: 1 / -1; }
