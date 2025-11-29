@@ -92,7 +92,7 @@
 
     /* ===== Mobile: collapse to single column and show inline year ===== */
     @media (max-width: 720px){
-      body{ padding:28px 16px 64px; }
+      body{ padding:0px 16px 64px; }
       header{ grid-template-columns:1fr; row-gap:12px; }
       .header-photo{ width:120px; height:120px; }
       .line{ grid-template-columns:1fr; row-gap:6px; }
